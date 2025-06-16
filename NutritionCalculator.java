@@ -39,6 +39,7 @@ void main() {
 	for(int j = 0;j < calories.length;j++) {
 		System.out.println(gainorLose[j] + ": " + (int) (maint + calories[j]));
 	}
+	System.out.println();
 macrosNeeded(maint);
 }
 private static double calculateMaintenance(double weightLbs, double heightInch, int age, String gender) { // All this does is take the users info and returns the maintenance based from the Mifflin formula.
@@ -74,8 +75,8 @@ private static void macrosNeeded(double calories){
 	double fatsPercent = 0.25;
 
 	double proteinsG = (percentProtein * calories) / 4;
-	double cToG = (carbsPercent * calories) / 9;
-	double fToG = (fatsPercent * calories) / 4;
+	double cToG = (carbsPercent * calories) / 4;
+	double fToG = (fatsPercent * calories) / 9;
 
 	System.out.println("Heres your macro nutrients");
 	System.out.println("Proteins:" + (double) proteinsG + " grams");
