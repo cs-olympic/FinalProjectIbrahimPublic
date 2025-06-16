@@ -39,9 +39,9 @@ void main() {
 	for(int j = 0;j < calories.length;j++) {
 		System.out.println(gainorLose[j] + ": " + (int) (maint + calories[j]));
 	}
-
+macrosNeeded(maint);
 }
-private static double calculateMaintenance(double weightLbs, double heightInch, int age, String gender) { // This method wasn't too hard to write. All it does is take the users info and returns the maintenance based from the Mifflin formula.
+private static double calculateMaintenance(double weightLbs, double heightInch, int age, String gender) { // All this does is take the users info and returns the maintenance based from the Mifflin formula.
 	double weightKg = weightLbs / 2.205;
 	double heightcm = heightInch * 2.54;
 	if(gender.equalsIgnoreCase("M")) {
@@ -66,6 +66,22 @@ private static double switchActivityMultiplier(int lvl){ // This part took FOREV
 		return 1.2;
 	}
 }
+//New methods that will track protein, carbohydrate, and fat intake.
+private static void macrosNeeded(double calories){
+	//proteins are typically 30% of your daily calories, fats are 25% and carbs are about 45%
+	double percentProtein = 0.30;
+	double carbsPercent = 0.45;
+	double fatsPercent = 0.25;
 
+	double proteinsG = (percentProtein * calories) / 4;
+	double cToG = (carbsPercent * calories) / 9;
+	double fToG = (fatsPercent * calories) / 4;
 
-}	
+	System.out.println("Heres your macro nutrients");
+	System.out.println("Proteins:" + (double) proteinsG + " grams");
+	System.out.println("Carbs:" + (double) cToG + " grams");
+	System.out.println("Fats:" + (double)fToG + " grams");
+}
+	
+
+}
